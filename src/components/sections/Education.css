@@ -1,0 +1,163 @@
+.education-section {
+  padding: 3rem 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  transition: background 0.3s, color 0.3s;
+  overflow: hidden;
+}
+
+.education-section.light {
+  background-color: #ffffff;
+  color: #000;
+}
+
+.education-section.dark {
+  background-color: #121212;
+  color: #fff;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #4d90fe;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+.education-carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  scroll-behavior: smooth;
+  overflow: hidden;
+  position: relative;
+}
+
+.education-card {
+  min-width: 250px;
+  width: 900%;
+  max-width: 900px;
+  height: 250px; /* Increase height for longer cards */
+  margin: 1rem 0;
+  padding: 2rem;
+  border-radius: 15px;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease;
+  z-index: 1;
+  color: inherit;
+}
+
+.education-card.active {
+  background-color: #ffffff;
+  color: #000;
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+.education-section.dark .education-card.active {
+  background-color: #1f1f1f;
+  color: #fff;
+}
+
+/* Glowing snake-like border effect */
+.education-card.active::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 15px;
+  background: linear-gradient(270deg, #00f0ff, #ff00e6, #00f0ff);
+  background-size: 600% 600%;
+  z-index: -1;
+  animation: glowBorder 6s linear infinite;
+}
+
+@keyframes glowBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Blur + shadow effect for neighbors */
+.education-card.blurred {
+  filter: blur(2px);
+  opacity: 0.4;
+  transform: scale(0.95);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+}
+
+.education-card.hidden {
+  display: none;
+}
+
+/* Logo styling */
+.edu-logo img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.edu-details h3 {
+  font-size: 1.6rem;
+  margin: 0.5rem 0;
+  font-weight: bold;
+}
+
+.institute {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0.3rem 0;
+}
+
+.duration {
+  font-size: 1rem;
+  color: rgb(14, 13, 13);
+}
+
+/* Dot navigation */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 10px;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: gray;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.carousel-dot.active {
+  background-color: #4d90fe;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .education-carousel {
+    flex-direction: column;
+  }
+
+  .education-card {
+    margin: 1rem 0;
+    width: 90%;
+    height: 450px; /* Adjust for smaller screens */
+  }
+}

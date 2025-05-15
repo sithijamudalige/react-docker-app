@@ -1,0 +1,22 @@
+/* Glowing effect for navbar */
+.glowing-navbar {
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.6);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Optional animation effect */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px #00f, 0 0 10px #00f;
+  }
+  50% {
+    box-shadow: 0 0 20px #0ff, 0 0 30px #0ff;
+  }
+  100% {
+    box-shadow: 0 0 5px #00f, 0 0 10px #00f;
+  }
+}
+
+.glowing-navbar {
+  animation: glow 3s infinite ease-in-out;
+}

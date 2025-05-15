@@ -1,0 +1,149 @@
+/* Remove cover photo wrapper */
+.cover-photo-wrapper {
+  display: none;
+}
+
+/* Profile image container now centered at top */
+.profile-img-outer {
+  position: relative;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+}
+
+/* Profile image with 3D glow, rotation, and depth */
+.profile-img-wrapper {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #00c6ff, #0077ff);
+  padding: 6px;
+  box-shadow:
+    0 8px 20px rgba(0, 119, 255, 0.6),
+    0 0 30px rgba(0, 255, 255, 0.4),
+    inset 0 0 10px rgba(255, 255, 255, 0.3);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.5s ease;
+}
+
+.profile-img-wrapper:hover {
+  transform: rotateY(15deg) rotateX(10deg) scale(1.05);
+}
+
+/* Profile image inside the wrapper */
+.profile-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Add space for profile image */
+.profile-info-section {
+  padding-top: 20px;
+  text-align: center;
+}
+.about-section.light {
+  background-color: #f0f0f0;
+  color: #222;
+}
+
+.about-section.dark {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+.name-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+/* Text box styling */
+.text-box {
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(200, 200, 200, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-height: 200px;
+  margin-bottom: 1rem;
+}
+
+.about-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  font-family: "Courier New", monospace;
+  overflow-wrap: break-word;
+}
+
+/* Profile image section */
+.profile-img-wrapper {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #4facfe, #00f2fe);
+  padding: 10px;
+  box-shadow: 0 0 30px rgba(0, 123, 255, 0.5);
+  animation: pulse-glow 3s infinite ease-in-out;
+  transition: transform 0.3s ease;
+}
+
+.profile-img-wrapper:hover {
+  transform: scale(1.05) rotate(2deg);
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 15px #00c6ff;
+  }
+  50% {
+    box-shadow: 0 0 40px #0077ff;
+  }
+  100% {
+    box-shadow: 0 0 15px #00c6ff;
+  }
+}
+
+/* CV Button */
+.cv-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #0077ff, #00d4ff);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 119, 255, 0.4);
+  transition: all 0.3s ease;
+  transform: perspective(1px) translateZ(0);
+}
+
+.cv-button:hover {
+  background: linear-gradient(135deg, #00d4ff, #0077ff);
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 119, 255, 0.5);
+}
+
+.cv-button:active {
+  transform: scale(0.95);
+}

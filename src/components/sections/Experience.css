@@ -1,0 +1,116 @@
+/* Overall Section Styling */
+.experience-section {
+  background: var(--bg);
+  color: var(--text-color);
+  padding: 2rem;
+  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
+}
+
+.experience-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Category Containers */
+.experience-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.skill-category {
+  background-color: var(--card-bg);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+}
+
+.category-title {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+/* Skills Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+/* Skill Card Styling */
+.skill-card {
+  background-color: var(--sub-bg);
+  border-radius: 16px;
+  padding: 1.2rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.skill-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.02), transparent 70%);
+  animation: rotate-bg 6s linear infinite;
+  z-index: 0;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 255, 255, 0.08);
+}
+
+/* Skill Icon */
+.skill-card img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 0.7rem;
+  z-index: 1;
+  position: relative;
+}
+
+/* Skill Name Text */
+.skill-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-color);
+  z-index: 1;
+  position: relative;
+}
+
+/* Glow Animation for Active Card */
+.skill-card.glow {
+  animation: glow-animation 1s infinite alternate;
+}
+
+/* Glow Keyframes */
+@keyframes glow-animation {
+  from {
+    box-shadow: 0 0 0px rgba(0, 255, 255, 0.2);
+    transform: scale(1);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+    transform: scale(1.05);
+  }
+}
+
+/* Background Glow Rotate Animation */
+@keyframes rotate-bg {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
