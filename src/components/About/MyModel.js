@@ -1,7 +1,6 @@
-// AboutMe.js
 import React, { useState, useEffect } from "react";
 import profilePic from "../../assets/profile.jpg";
-import coverImage from "../../assets/cover.jpg";
+import MyModel from "../About/MyModel";
 import "./AboutMe.css";
 
 const AboutMe = ({ darkMode }) => {
@@ -15,7 +14,7 @@ const AboutMe = ({ darkMode }) => {
     let index = 0;
     const typing = setInterval(() => {
       if (index < fullText.length) {
-        setText((prev) => prev + fullText.charAt(index));
+        setText((prev) => prev + fullText[index]);
         index++;
       } else {
         clearInterval(typing);
@@ -25,23 +24,11 @@ const AboutMe = ({ darkMode }) => {
   }, []);
 
   const handleButtonClick = () => {
-    const button = document.querySelector(".cv-button");
-
-    setBtnText("\u23F3 Preparing...");
-    button.classList.add("loading");
-    button.classList.add("clicked");
-
+    setBtnText("Generating...");
     setTimeout(() => {
-      setBtnText("\uD83C\uDF89 Ready to Download!");
-      button.classList.remove("loading");
-      button.classList.add("ready");
-
-      setTimeout(() => {
-        setBtnText("Download My CV");
-        button.classList.remove("ready");
-        button.classList.remove("clicked");
-      }, 2500);
-    }, 2000);
+      setBtnText("✅ Ready!");
+      setTimeout(() => setBtnText("Download My CV"), 2000);
+    }, 1000);
   };
 
   return (
@@ -49,25 +36,21 @@ const AboutMe = ({ darkMode }) => {
       id="AboutMe"
       className={`about-section py-5 px-4 ${darkMode ? "dark" : "light"}`}
     >
-      <div className="cover-photo-wrapper">
-        <img src={coverImage} alt="Cover" className="cover-photo" />
-        <div className="cover-overlay"></div>
-        <div className="cover-title">
-          <h1>Sithija Mudalige</h1>
-          <p>Computer Science Undergraduate</p>
-        </div>
-      </div>
-
+      {/* ✅ Profile Photo */}
       <div className="profile-img-outer">
         <div className="profile-img-wrapper">
           <img src={profilePic} alt="Sithija Mudalige" className="profile-img" />
         </div>
       </div>
 
-      <div className="about-container">
+      {/* ✅ Layout with Text + 3D Model */}
+      <div className="container mx-auto grid md:grid-cols-2 gap-8 items-start pt-16">
+        <div className="model-wrapper">
+          <MyModel />
+        </div>
         <div>
-          <h2 className="name-title">About Me</h2>
-          <p className="subtitle">Get to know me better</p>
+          <h2 className="name-title">Sithija Mudalige</h2>
+          <p className="subtitle">Computer Science Undergraduate</p>
 
           <div className="text-box">
             <p className="about-description typing-text">{text}</p>

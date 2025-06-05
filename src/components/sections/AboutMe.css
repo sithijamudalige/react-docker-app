@@ -1,92 +1,78 @@
-/* Remove cover photo wrapper */
+/* Cover Photo Section */
 .cover-photo-wrapper {
-  display: none;
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  display: block;
+  animation: fadeInSlide 1.5s ease-in-out;
 }
 
-/* Profile image container now centered at top */
-.profile-img-outer {
-  position: relative;
-  margin-top: 40px;
-  display: flex;
-  justify-content: center;
+.cover-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: zoomIn 20s ease-in-out infinite alternate;
+}
+
+.cover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7));
+  z-index: 1;
+}
+
+.cover-title {
+  position: absolute;
+  bottom: 20px;
+  left: 40px;
+  color: white;
   z-index: 2;
 }
 
-/* Profile image with 3D glow, rotation, and depth */
-.profile-img-wrapper {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  background: linear-gradient(145deg, #00c6ff, #0077ff);
-  padding: 6px;
-  box-shadow:
-    0 8px 20px rgba(0, 119, 255, 0.6),
-    0 0 30px rgba(0, 255, 255, 0.4),
-    inset 0 0 10px rgba(255, 255, 255, 0.3);
-  transform-style: preserve-3d;
-  perspective: 1000px;
-  transition: transform 0.5s ease;
+.cover-title h1 {
+  font-size: 2.5rem;
+  margin: 0;
 }
 
-.profile-img-wrapper:hover {
-  transform: rotateY(15deg) rotateX(10deg) scale(1.05);
-}
-
-/* Profile image inside the wrapper */
-.profile-img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid white;
-  box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.2);
-}
-
-/* Add space for profile image */
-.profile-info-section {
-  padding-top: 20px;
-  text-align: center;
-}
-.about-section.light {
-  background-color: #f0f0f0;
-  color: #222;
-}
-
-.about-section.dark {
-  background-color: #1e1e1e;
-  color: #f0f0f0;
-}
-
-.name-title {
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-.subtitle {
+.cover-title p {
   font-size: 1.2rem;
-  margin-bottom: 1rem;
+  margin: 0;
 }
 
-/* Text box styling */
-.text-box {
-  background-color: rgba(255, 255, 255, 0.08);
-  padding: 1rem;
-  border-radius: 12px;
-  border: 1px solid rgba(200, 200, 200, 0.3);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  min-height: 200px;
-  margin-bottom: 1rem;
+/* Animations */
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.15);
+  }
 }
 
-.about-description {
-  font-size: 1rem;
-  line-height: 1.6;
-  white-space: pre-wrap;
-  font-family: "Courier New", monospace;
-  overflow-wrap: break-word;
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Profile image section */
+/* Profile Image Section */
+.profile-img-outer {
+  position: relative;
+  margin-top: -60px;
+  display: flex;
+  justify-content: center;
+  z-index: 3;
+}
+
 .profile-img-wrapper {
   width: 220px;
   height: 220px;
@@ -122,28 +108,120 @@
   }
 }
 
+/* Section Theme */
+.about-section.light {
+  background-color: #f0f0f0;
+  color: #222;
+}
+
+.about-section.dark {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+/* Text Styles */
+.name-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.text-box {
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(200, 200, 200, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-height: 200px;
+  margin-bottom: 1rem;
+}
+
+.about-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  font-family: "Courier New", monospace;
+  overflow-wrap: break-word;
+}
+
 /* CV Button */
 .cv-button {
   display: inline-block;
-  padding: 12px 24px;
+  padding: 12px 28px;
   background: linear-gradient(135deg, #0077ff, #00d4ff);
   color: white;
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: 50px;
   font-weight: 600;
   font-size: 1rem;
-  margin-top: 1.5rem;
-  box-shadow: 0 5px 15px rgba(0, 119, 255, 0.4);
-  transition: all 0.3s ease;
-  transform: perspective(1px) translateZ(0);
+  margin-top: 1rem;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 118, 255, 0.6);
 }
 
 .cv-button:hover {
-  background: linear-gradient(135deg, #00d4ff, #0077ff);
-  transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(0, 119, 255, 0.5);
+  background: linear-gradient(135deg, #005ecb, #00aaff);
 }
 
-.cv-button:active {
-  transform: scale(0.95);
+.cv-button.loading::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 3px solid white;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.cv-button.ready {
+  background: linear-gradient(135deg, #00ff6a, #00c2ff);
+  color: black;
+  font-weight: bold;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 255, 134, 0.8);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.glow-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+/* Confetti Animation */
+.confetti {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, #ff0, #f0f, #0ff);
+  background-size: 10px 10px;
+  animation: confetti-fall 1s ease-out forwards;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+@keyframes confetti-fall {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
 }

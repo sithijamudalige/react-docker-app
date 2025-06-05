@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Education.css";
 import sibaLogo from "../../assets/siba-logo.png";
 import stSylLogo from "../../assets/stsylvesters-logo.png";
 
 const Education = ({ darkMode }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   const educationData = [
     {
       degree: "Bachelor of Science in Information Technology",
@@ -14,7 +16,7 @@ const Education = ({ darkMode }) => {
     {
       degree: "IELTS Training Program",
       institute: "SIBA Campus, Pallekele",
-      duration: "2024 – Present",
+      duration: "2024 – 2025",
       logo: sibaLogo,
     },
     {
@@ -25,25 +27,27 @@ const Education = ({ darkMode }) => {
     },
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  // Automatically switch active card every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % educationData.length);
+    }, 3000); // 3 seconds
 
-  const handleDotClick = (index) => {
-    setCurrentIndex(index);
-  };
+    return () => clearInterval(interval); // cleanup on unmount
+  }, [educationData.length]);
 
   return (
-    <section id="Education" className={`education-section ${darkMode ? "dark" : "light"}`}>
+    <section
+      id="Education"
+      className={`education-section ${darkMode ? "dark" : "light"}`}
+    >
       <h2 className="section-title">Education</h2>
-      <div className="education-carousel">
+      <div className="education-grid">
         {educationData.map((edu, index) => (
           <div
             key={index}
             className={`education-card ${
-              index === currentIndex
-                ? "active"
-                : index === currentIndex - 1 || index === currentIndex + 1
-                ? "blurred"
-                : "hidden"
+              activeIndex === index ? "active-card" : ""
             }`}
           >
             <div className="edu-logo">
@@ -55,15 +59,6 @@ const Education = ({ darkMode }) => {
               <p className="duration">{edu.duration}</p>
             </div>
           </div>
-        ))}
-      </div>
-      <div className="carousel-dots">
-        {educationData.map((_, index) => (
-          <span
-            key={index}
-            className={`carousel-dot ${index === currentIndex ? "active" : ""}`}
-            onClick={() => handleDotClick(index)}
-          />
         ))}
       </div>
     </section>

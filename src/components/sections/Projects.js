@@ -39,7 +39,7 @@ const projects = [
     features: ["Item listing", "Buying", "Basic cart functions"],
     highlight:
       "Implemented advanced database management with real-time item updates and transactional integrity.",
-    link: "#",
+    link: "https://github.com/Darshana-stan/Clothing-Store-App.git",
     icon: "shopping-app.png",
   },
   {

@@ -1,3 +1,5 @@
+// Experience.jsx (No changes from your original React code)
+
 import React, { useEffect, useState } from 'react';
 import './Experience.css';
 
@@ -6,10 +8,10 @@ const skills = [
     category: 'Frontend Development',
     items: [
       { name: 'HTML5', icon: 'html5.png' },
-      { name: 'CSS3', icon: 'css3.png' },
+      { name: 'CSS3', icon: 'css3.jpg' },
       { name: 'Bootstrap', icon: 'bootstrap.png' },
       { name: 'JavaScript', icon: 'javascript.png' },
-      { name: 'React', icon:'react.png'},
+      { name: 'React', icon:'react.jpg'},
       { name: 'Angular', icon:'angular.png'},
     ],
   },
@@ -20,6 +22,7 @@ const skills = [
       { name: 'Django', icon: 'django.png' },
       { name: 'Laravel', icon:'laravel.png'},
       { name: 'Java', icon:'java.png'},
+      { name: 'Flask', icon:'flask.jpg'},
     ],
   },
   {
@@ -74,6 +77,18 @@ const skills = [
     ],
   },
   {
+    category: 'DevOps & Containerization',
+    items: [
+      { name: 'Docker', icon: 'docker.jpg' },
+    ],
+  },
+  {
+    category: 'Project Management Tools',
+    items: [
+      { name: 'Jira', icon: 'jira.jpg' },
+    ],
+  },
+  {
     category: 'Other Skills',
     items: [
       { name: 'Linux Basics', icon: 'linux.png' },
@@ -118,6 +133,11 @@ const Experience = () => {
                       className="skill-image"
                     />
                     <span className="skill-name">{skill.name}</span>
+                    <div className="skill-bar">
+                      <div className="skill-bar-fill" style={{ width: '60%' }}>
+                        <span className="skill-bar-text"></span>
+                      </div>
+                    </div>
                   </div>
                 );
                 skillCounter++;

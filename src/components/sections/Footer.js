@@ -8,7 +8,7 @@ const Footer = () => {
         &copy; {new Date().getFullYear()} All rights reserved.
       </p>
       <p className="footer-text">
-        Portfolio Version 1.0 | Created by <strong>L.H.M.S.S. Mudalige</strong>
+        Portfolio Version 1.1 | Created by <strong>L.H.M.S.S. Mudalige</strong>
       </p>
       <p className="footer-note">
         ⚠️ This project is personal and can only be edited by the developer.
