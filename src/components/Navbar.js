@@ -11,7 +11,6 @@ const Navbar = ({ darkMode, setDarkMode, scrollToSection, refs }) => {
     { name: "Experience", ref: refs.experienceRef },
     { name: "Projects", ref: refs.projectsRef },
     { name: "Contact", ref: refs.contactRef },
-   
   ];
 
   const handleNavClick = (ref) => {
@@ -44,13 +43,14 @@ const Navbar = ({ darkMode, setDarkMode, scrollToSection, refs }) => {
           <ul className="navbar-nav">
             {navLinks.map((link) => (
               <li className="nav-item" key={link.name}>
-                <a
-                  className="nav-link"
-                  role="button"
+                <button
+                  type="button"
+                  className="nav-link btn btn-link"
                   onClick={() => handleNavClick(link.ref)}
+                  style={{ padding: 0, margin: 0, color: "inherit", textDecoration: "none" }}
                 >
                   {link.name}
-                </a>
+                </button>
               </li>
             ))}
             <li className="nav-item">
